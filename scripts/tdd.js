@@ -5,11 +5,10 @@
 
 // Load modules
 const fs = require('fs-extra'), path = require('path');
-const child_process = require('child_process');
+const childProcess = require('child_process');
 const chalk = require('chalk');
-// Load helper functions (these are from existing snippets in 30 seconds of code!)
-const isTravisCI = () => 'TRAVIS' in process.env && 'CI' in process.env;
-if(isTravisCI() && process.env['TRAVIS_EVENT_TYPE'] !== 'cron' && process.env['TRAVIS_EVENT_TYPE'] !== 'api') {
+const util = require('./util');
+if(util.isTravisCI() && process.env['TRAVIS_EVENT_TYPE'] !== 'cron' && process.env['TRAVIS_EVENT_TYPE'] !== 'api') {
   console.log(`${chalk.green('NOBUILD')} Testing terminated, not a cron job or a custom build!`);
   process.exit(0);
 }
@@ -61,20 +60,14 @@ snippetFiles
                             .filter((_, i) => blockMarkers[2] < i && i < blockMarkers[3]);
 
     // Export template for snippetName.js
-    const exportFile = `${fileFunction.join('\n')}\nmodule.exports = ${fileName}`.trim();
+    const exportFile = `${fileFunction.join('\n')}\nmodule.exports = ${fileName};`.trim();
 
     // Export template for snippetName.test.js which generates a example test & other information
     const exportTest = [
-      `const test = require('tape');`,
+      `const expect = require('expect');`,
       `const ${fileName} = require('./${fileName}.js');`,
-      `\ntest('Testing ${fileName}', (t) => {`,
-      `  //For more information on all the methods supported by tape\n  //Please go to https://github.com/substack/tape`,
-      `  t.true(typeof ${fileName} === 'function', '${fileName} is a Function');`,
-      `  //t.deepEqual(${fileName}(args..), 'Expected');`,
-      `  //t.equal(${fileName}(args..), 'Expected');`,
-      `  //t.false(${fileName}(args..), 'Expected');`,
-      `  //t.throws(${fileName}(args..), 'Expected');`,
-      `  t.end();`,
+      `\ntest('${fileName} is a Function', () => {`,
+      `  expect(${fileName}).toBeInstanceOf(Function);`,
       `});`
     ].join('\n');
 
@@ -91,7 +84,7 @@ snippetFiles
   });
 try {
   fs.writeFileSync(path.join(TEST_PATH,'testlog'),`Test log for: ${new Date().toString()}\n`);
-  child_process.execSync(`npm test >> ${TEST_PATH}/testlog`);
+  childProcess.execSync(`npm test`);
 }
 catch (e) {
   fs.appendFileSync(path.join(TEST_PATH,'testlog'));

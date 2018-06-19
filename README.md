@@ -2,10 +2,12 @@
 
 # 30 seconds of code
 
-[![License](https://img.shields.io/badge/license-CC0--1.0-blue.svg)](https://github.com/Chalarangelo/30-seconds-of-code/blob/master/LICENSE) [![npm Downloads](https://img.shields.io/npm/dt/30-seconds-of-code.svg)](https://www.npmjs.com/package/30-seconds-of-code) [![npm Version](https://img.shields.io/npm/v/30-seconds-of-code.svg)](https://www.npmjs.com/package/30-seconds-of-code) [![Gitter chat](https://img.shields.io/badge/chat-on%20gitter-4FB999.svg)](https://gitter.im/30-seconds-of-code/Lobby) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com) [![Travis Build](https://travis-ci.org/Chalarangelo/30-seconds-of-code.svg?branch=master)](https://travis-ci.org/Chalarangelo/30-seconds-of-code) [![Insight.io](https://img.shields.io/badge/insight.io-Ready-brightgreen.svg)](https://insight.io/github.com/Chalarangelo/30-seconds-of-code/tree/master/?source=0) [![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg)](https://github.com/Flet/semistandard) [![ProductHunt](https://img.shields.io/badge/producthunt-vote-orange.svg)](https://www.producthunt.com/posts/30-seconds-of-code)
+[![License](https://img.shields.io/badge/license-CC0--1.0-blue.svg)](https://github.com/Chalarangelo/30-seconds-of-code/blob/master/LICENSE) [![npm Downloads](https://img.shields.io/npm/dt/30-seconds-of-code.svg)](https://www.npmjs.com/package/30-seconds-of-code) [![npm Version](https://img.shields.io/npm/v/30-seconds-of-code.svg)](https://www.npmjs.com/package/30-seconds-of-code) [![Gitter chat](https://img.shields.io/badge/chat-on%20gitter-4FB999.svg)](https://gitter.im/30-seconds-of-code/Lobby) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com) [![Travis Build](https://travis-ci.org/Chalarangelo/30-seconds-of-code.svg?branch=master)](https://travis-ci.org/Chalarangelo/30-seconds-of-code) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/207ea6fa2c204ccda61dc3047986e144)](https://www.codacy.com/app/Chalarangelo/30-seconds-of-code?utm_source=github.com&utm_medium=referral&utm_content=Chalarangelo/30-seconds-of-code&utm_campaign=badger) [![Maintainability](https://api.codeclimate.com/v1/badges/e9020d1c963a91c0c8a2/maintainability)](https://codeclimate.com/github/Chalarangelo/30-seconds-of-code/maintainability)  [![Insight.io](https://img.shields.io/badge/insight.io-Ready-brightgreen.svg)](https://insight.io/github.com/Chalarangelo/30-seconds-of-code/tree/master/?source=0) [![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg)](https://github.com/Flet/semistandard) [![ProductHunt](https://img.shields.io/badge/producthunt-vote-orange.svg)](https://www.producthunt.com/posts/30-seconds-of-code)
 
 
 > Curated collection of useful JavaScript snippets that you can understand in 30 seconds or less.
+
+[![Sponsored by DigitalOcean](/sponsored_by_DigitalOcean.png)](https://www.digitalocean.com)
 
 
 - Use <kbd>Ctrl</kbd> + <kbd>F</kbd> or <kbd>command</kbd> + <kbd>F</kbd> to search for a snippet.
@@ -13,6 +15,11 @@
 - Snippets are written in ES6, use the [Babel transpiler](https://babeljs.io/) to ensure backwards-compatibility.
 - You can import these snippets into your text editor of choice (VSCode, Atom, Sublime) using the files found in [this repo](https://github.com/Rob-Rychs/30-seconds-of-code-texteditorsnippets).
 - You can import these snippets into Alfred 3, using [this file](https://github.com/lslvxy/30-seconds-of-code-alfredsnippets).
+
+#### Related
+
+- [30 Seconds of CSS](https://atomiks.github.io/30-seconds-of-css/)
+- [30 Seconds of Python](https://github.com/kriadmin/30-seconds-of-python-code)
 
 #### Package
 
@@ -33,6 +40,7 @@ CDN links
 - [ES5 Minified (UMD)](https://unpkg.com/30-seconds-of-code/dist/_30s.es5.min.js)
 
 <details>
+<summary>Details</summary>
 
 **Browser**
 
@@ -82,8 +90,11 @@ average(1, 2, 3);
 * [`collectInto`](#collectinto)
 * [`flip`](#flip)
 * [`over`](#over)
+* [`overArgs`](#overargs)
+* [`pipeAsyncFunctions`](#pipeasyncfunctions)
 * [`pipeFunctions`](#pipefunctions)
 * [`promisify`](#promisify)
+* [`rearg`](#rearg)
 * [`spreadOver`](#spreadover)
 * [`unary`](#unary)
 
@@ -94,6 +105,10 @@ average(1, 2, 3);
 <details>
 <summary>View contents</summary>
 
+* [`all`](#all)
+* [`any`](#any)
+* [`bifurcate`](#bifurcate)
+* [`bifurcateBy`](#bifurcateby)
 * [`chunk`](#chunk)
 * [`compact`](#compact)
 * [`countBy`](#countby)
@@ -102,8 +117,10 @@ average(1, 2, 3);
 * [`difference`](#difference)
 * [`differenceBy`](#differenceby)
 * [`differenceWith`](#differencewith)
-* [`dropElements`](#dropelements)
+* [`drop`](#drop)
 * [`dropRight`](#dropright)
+* [`dropRightWhile`](#droprightwhile)
+* [`dropWhile`](#dropwhile)
 * [`everyNth`](#everynth)
 * [`filterNonUnique`](#filternonunique)
 * [`findLast`](#findlast)
@@ -118,6 +135,7 @@ average(1, 2, 3);
 * [`initializeArrayWithRange`](#initializearraywithrange)
 * [`initializeArrayWithRangeRight`](#initializearraywithrangeright)
 * [`initializeArrayWithValues`](#initializearraywithvalues)
+* [`initializeNDArray`](#initializendarray)
 * [`intersection`](#intersection)
 * [`intersectionBy`](#intersectionby)
 * [`intersectionWith`](#intersectionwith)
@@ -125,30 +143,41 @@ average(1, 2, 3);
 * [`join`](#join)
 * [`last`](#last)
 * [`longestItem`](#longestitem)
-* [`mapObject`](#mapobject)
+* [`mapObject`](#mapobject-)
 * [`maxN`](#maxn)
 * [`minN`](#minn)
+* [`none`](#none)
 * [`nthElement`](#nthelement)
+* [`offset`](#offset)
 * [`partition`](#partition)
+* [`permutations`](#permutations)
 * [`pull`](#pull)
 * [`pullAtIndex`](#pullatindex)
 * [`pullAtValue`](#pullatvalue)
+* [`pullBy`](#pullby-)
 * [`reducedFilter`](#reducedfilter)
 * [`reduceSuccessive`](#reducesuccessive)
 * [`reduceWhich`](#reducewhich)
+* [`reject`](#reject)
 * [`remove`](#remove)
 * [`sample`](#sample)
 * [`sampleSize`](#samplesize)
 * [`shuffle`](#shuffle)
 * [`similarity`](#similarity)
 * [`sortedIndex`](#sortedindex)
+* [`sortedIndexBy`](#sortedindexby)
 * [`sortedLastIndex`](#sortedlastindex)
+* [`sortedLastIndexBy`](#sortedlastindexby)
+* [`stableSort`](#stablesort-)
 * [`symmetricDifference`](#symmetricdifference)
 * [`symmetricDifferenceBy`](#symmetricdifferenceby)
 * [`symmetricDifferenceWith`](#symmetricdifferencewith)
 * [`tail`](#tail)
 * [`take`](#take)
 * [`takeRight`](#takeright)
+* [`takeRightWhile`](#takerightwhile)
+* [`takeWhile`](#takewhile)
+* [`toHash`](#tohash)
 * [`union`](#union)
 * [`unionBy`](#unionby)
 * [`unionWith`](#unionwith)
@@ -171,6 +200,7 @@ average(1, 2, 3);
 * [`arrayToHtmlList`](#arraytohtmllist)
 * [`bottomVisible`](#bottomvisible)
 * [`copyToClipboard`](#copytoclipboard-)
+* [`counter`](#counter-)
 * [`createElement`](#createelement)
 * [`createEventHub`](#createeventhub-)
 * [`currentURL`](#currenturl)
@@ -182,15 +212,20 @@ average(1, 2, 3);
 * [`hashBrowser`](#hashbrowser-)
 * [`hide`](#hide)
 * [`httpsRedirect`](#httpsredirect)
+* [`isBrowserTabFocused`](#isbrowsertabfocused)
+* [`nodeListToArray`](#nodelisttoarray)
 * [`observeMutations`](#observemutations-)
 * [`off`](#off)
 * [`on`](#on)
 * [`onUserInputChange`](#onuserinputchange-)
+* [`prefix`](#prefix)
+* [`recordAnimationFrames`](#recordanimationframes)
 * [`redirect`](#redirect)
 * [`runAsync`](#runasync-)
 * [`scrollToTop`](#scrolltotop)
 * [`setStyle`](#setstyle)
 * [`show`](#show)
+* [`smoothScroll`](#smoothscroll)
 * [`toggleClass`](#toggleclass)
 * [`UUIDGeneratorBrowser`](#uuidgeneratorbrowser)
 
@@ -202,7 +237,9 @@ average(1, 2, 3);
 <summary>View contents</summary>
 
 * [`formatDuration`](#formatduration)
+* [`getColonTimeFromDate`](#getcolontimefromdate)
 * [`getDaysDiffBetweenDates`](#getdaysdiffbetweendates)
+* [`getMeridiemSuffixOfInteger`](#getmeridiemsuffixofinteger)
 * [`tomorrow`](#tomorrow)
 
 </details>
@@ -212,15 +249,19 @@ average(1, 2, 3);
 <details>
 <summary>View contents</summary>
 
+* [`attempt`](#attempt)
 * [`bind`](#bind)
 * [`bindKey`](#bindkey)
 * [`chainAsync`](#chainasync)
 * [`compose`](#compose)
 * [`composeRight`](#composeright)
+* [`converge`](#converge)
 * [`curry`](#curry)
+* [`debounce`](#debounce)
 * [`defer`](#defer)
 * [`delay`](#delay)
 * [`functionName`](#functionname)
+* [`hz`](#hz)
 * [`memoize`](#memoize)
 * [`negate`](#negate)
 * [`once`](#once)
@@ -228,8 +269,11 @@ average(1, 2, 3);
 * [`partialRight`](#partialright)
 * [`runPromisesInSeries`](#runpromisesinseries)
 * [`sleep`](#sleep)
+* [`throttle`](#throttle)
 * [`times`](#times)
+* [`uncurry`](#uncurry)
 * [`unfold`](#unfold)
+* [`when`](#when)
 
 </details>
 
@@ -238,9 +282,12 @@ average(1, 2, 3);
 <details>
 <summary>View contents</summary>
 
+* [`approximatelyEqual`](#approximatelyequal)
 * [`average`](#average)
 * [`averageBy`](#averageby)
+* [`binomialCoefficient`](#binomialcoefficient)
 * [`clampNumber`](#clampnumber)
+* [`degreesToRads`](#degreestorads)
 * [`digitize`](#digitize)
 * [`distance`](#distance)
 * [`elo`](#elo-)
@@ -261,6 +308,7 @@ average(1, 2, 3);
 * [`percentile`](#percentile)
 * [`powerset`](#powerset)
 * [`primes`](#primes)
+* [`radsToDegrees`](#radstodegrees)
 * [`randomIntArrayInRange`](#randomintarrayinrange)
 * [`randomIntegerInRange`](#randomintegerinrange)
 * [`randomNumberInRange`](#randomnumberinrange)
@@ -297,11 +345,13 @@ average(1, 2, 3);
 <details>
 <summary>View contents</summary>
 
+* [`bindAll`](#bindall)
 * [`deepClone`](#deepclone)
 * [`defaults`](#defaults)
 * [`equals`](#equals-)
 * [`findKey`](#findkey)
 * [`findLastKey`](#findlastkey)
+* [`flattenObject`](#flattenobject)
 * [`forOwn`](#forown)
 * [`forOwnRight`](#forownright)
 * [`functions`](#functions)
@@ -313,6 +363,7 @@ average(1, 2, 3);
 * [`matches`](#matches)
 * [`matchesWith`](#matcheswith)
 * [`merge`](#merge)
+* [`nest`](#nest)
 * [`objectFromPairs`](#objectfrompairs)
 * [`objectToPairs`](#objecttopairs)
 * [`omit`](#omit)
@@ -320,10 +371,12 @@ average(1, 2, 3);
 * [`orderBy`](#orderby)
 * [`pick`](#pick)
 * [`pickBy`](#pickby)
+* [`renameKeys`](#renamekeys)
 * [`shallowClone`](#shallowclone)
 * [`size`](#size)
 * [`transform`](#transform)
 * [`truthCheckCollection`](#truthcheckcollection)
+* [`unflattenObject`](#unflattenobject-)
 
 </details>
 
@@ -332,7 +385,6 @@ average(1, 2, 3);
 <details>
 <summary>View contents</summary>
 
-* [`anagrams`](#anagrams)
 * [`byteSize`](#bytesize)
 * [`capitalize`](#capitalize)
 * [`capitalizeEveryWord`](#capitalizeeveryword)
@@ -341,14 +393,19 @@ average(1, 2, 3);
 * [`escapeRegExp`](#escaperegexp)
 * [`fromCamelCase`](#fromcamelcase)
 * [`isAbsoluteURL`](#isabsoluteurl)
+* [`isAnagram`](#isanagram)
 * [`isLowerCase`](#islowercase)
 * [`isUpperCase`](#isuppercase)
 * [`mask`](#mask)
+* [`pad`](#pad)
 * [`palindrome`](#palindrome)
 * [`pluralize`](#pluralize)
+* [`removeNonASCII`](#removenonascii)
 * [`reverseString`](#reversestring)
 * [`sortCharactersInString`](#sortcharactersinstring)
 * [`splitLines`](#splitlines)
+* [`stringPermutations`](#stringpermutations)
+* [`stripHTMLTags`](#striphtmltags)
 * [`toCamelCase`](#tocamelcase)
 * [`toKebabCase`](#tokebabcase)
 * [`toSnakeCase`](#tosnakecase)
@@ -399,6 +456,8 @@ average(1, 2, 3);
 * [`hexToRGB`](#hextorgb-)
 * [`httpGet`](#httpget)
 * [`httpPost`](#httppost)
+* [`isBrowser`](#isbrowser)
+* [`mostPerformant`](#mostperformant)
 * [`nthArg`](#ntharg)
 * [`parseCookie`](#parsecookie)
 * [`prettyBytes`](#prettybytes)
@@ -406,6 +465,7 @@ average(1, 2, 3);
 * [`RGBToHex`](#rgbtohex)
 * [`serializeCookie`](#serializecookie)
 * [`timeTaken`](#timetaken)
+* [`toCurrency`](#tocurrency)
 * [`toDecimalMark`](#todecimalmark)
 * [`toOrdinalSuffix`](#toordinalsuffix)
 * [`validateNumber`](#validatenumber)
@@ -485,7 +545,7 @@ const Pall = collectInto(Promise.all.bind(Promise));
 let p1 = Promise.resolve(1);
 let p2 = Promise.resolve(2);
 let p3 = new Promise(resolve => setTimeout(resolve, 2000, 3));
-Pall(p1, p2, p3).then(console.log);
+Pall(p1, p2, p3).then(console.log); // [1, 2, 3] (after about 2 seconds)
 ```
 
 </details>
@@ -537,6 +597,63 @@ const over = (...fns) => (...args) => fns.map(fn => fn.apply(null, args));
 ```js
 const minMax = over(Math.min, Math.max);
 minMax(1, 2, 3, 4, 5); // [1,5]
+```
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
+
+### overArgs
+
+Creates a function that invokes the provided function with its arguments transformed.
+
+Use `Array.map()` to apply `transforms` to `args` in combination with the spread operator (`...`) to pass the transformed arguments to `fn`.
+
+```js
+const overArgs = (fn, transforms) => (...args) => fn(...args.map((val, i) => transforms[i](val)));
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+const square = n => n * n;
+const double = n => n * 2;
+const fn = overArgs((x, y) => [x, y], [square, double]);
+fn(9, 3); // [81, 6]
+```
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
+
+### pipeAsyncFunctions
+
+Performs left-to-right function composition for asynchronous functions.
+
+Use `Array.reduce()` with the spread operator (`...`) to perform left-to-right function composition using `Promise.then()`.
+The functions can return a combination of: simple values, `Promise`'s, or they can be defined as `async` ones returning through `await`.
+All functions must be unary.
+
+```js
+const pipeAsyncFunctions = (...fns) => arg => fns.reduce((p, f) => p.then(f), Promise.resolve(arg));
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+const sum = pipeAsyncFunctions(
+  x => x + 1,
+  x => new Promise(resolve => setTimeout(() => resolve(x + 2), 1000)),
+  x => x + 3,
+  async x => (await x) + 4
+);
+(async () => {
+  console.log(await sum(5)); // 15 (after one second)
+})();
 ```
 
 </details>
@@ -599,6 +716,40 @@ delay(2000).then(() => console.log('Hi!')); // // Promise resolves after 2s
 <br>[⬆ Back to top](#table-of-contents)
 
 
+### rearg
+
+Creates a function that invokes the provided function with its arguments arranged according to the specified indexes.
+
+Use `Array.reduce()` and `Array.indexOf()` to reorder arguments based on `indexes` in combination with the spread operator (`...`) to pass the transformed arguments to `fn`.
+
+```js
+const rearg = (fn, indexes) => (...args) =>
+  fn(
+    ...args.reduce(
+      (acc, val, i) => ((acc[indexes.indexOf(i)] = val), acc),
+      Array.from({ length: indexes.length })
+    )
+  );
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+var rearged = rearg(
+  function(a, b, c) {
+    return [a, b, c];
+  },
+  [2, 0, 1]
+);
+rearged('b', 'c', 'a'); // ['a', 'b', 'c']
+```
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
+
 ### spreadOver
 
 Takes a variadic function and returns a closure that accepts an array of arguments to map to the inputs of the function.
@@ -645,6 +796,100 @@ const unary = fn => val => fn(val);
 
 ---
  ## 📚 Array
+
+### all
+
+Returns `true` if the provided predicate function returns `true` for all elements in a collection, `false` otherwise.
+
+Use `Array.every()` to test if all elements in the collection return `true` based on `fn`.
+Omit the second argument, `fn`, to use `Boolean` as a default.
+
+```js
+const all = (arr, fn = Boolean) => arr.every(fn);
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+all([4, 2, 3], x => x > 1); // true
+all([1, 2, 3]); // true
+```
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
+
+### any
+
+Returns `true` if the provided predicate function returns `true` for at least one element in a collection, `false` otherwise.
+
+Use `Array.some()` to test if any elements in the collection return `true` based on `fn`.
+Omit the second argument, `fn`, to use `Boolean` as a default.
+
+```js
+const any = (arr, fn = Boolean) => arr.some(fn);
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+any([0, 1, 2, 0], x => x >= 2); // true
+any([0, 0, 1, 0]); // true
+```
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
+
+### bifurcate
+
+Splits values into two groups. If an element in `filter` is truthy, the corresponding element in the collection belongs to the first group; otherwise, it belongs to the second group.
+
+Use `Array.reduce()` and `Array.push()` to add elements to groups, based on `filter`.
+
+```js
+const bifurcate = (arr, filter) =>
+  arr.reduce((acc, val, i) => (acc[filter[i] ? 0 : 1].push(val), acc), [[], []]);
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+bifurcate(['beep', 'boop', 'foo', 'bar'], [true, true, false, true]); // [ ['beep', 'boop', 'bar'], ['foo'] ]
+```
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
+
+### bifurcateBy
+
+Splits values into two groups according to a predicate function, which specifies which group an element in the input collection belongs to. If the predicate function returns a truthy value, the collection element belongs to the first group; otherwise, it belongs to the second group.
+
+Use `Array.reduce()` and `Array.push()` to add elements to groups, based on the value returned by `fn` for each element.
+
+```js
+const bifurcateBy = (arr, fn) =>
+  arr.reduce((acc, val, i) => (acc[fn(val, i) ? 0 : 1].push(val), acc), [[], []]);
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+bifurcateBy(['beep', 'boop', 'foo', 'bar'], x => x[0] === 'b'); // [ ['beep', 'boop', 'bar'], ['foo'] ]
+```
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
 
 ### chunk
 
@@ -730,7 +975,7 @@ Counts the occurrences of a value in an array.
 Use `Array.reduce()` to increment a counter each time you encounter the specific value inside the array.
 
 ```js
-const countOccurrences = (arr, val) => arr.reduce((a, v) => (v === val ? a + 1 : a + 0), 0);
+const countOccurrences = (arr, val) => arr.reduce((a, v) => (v === val ? a + 1 : a), 0);
 ```
 
 <details>
@@ -842,25 +1087,23 @@ differenceWith([1, 1.2, 1.5, 3, 0], [1.9, 3, 0], (a, b) => Math.round(a) === Mat
 <br>[⬆ Back to top](#table-of-contents)
 
 
-### dropElements
+### drop
 
-Removes elements in an array until the passed function returns `true`. Returns the remaining elements in the array.
+Returns a new array with `n` elements removed from the left.
 
-Loop through the array, using `Array.slice()` to drop the first element of the array until the returned value from the function is `true`.
-Returns the remaining elements.
+Use `Array.slice()` to slice the remove the specified number of elements from the left.
 
 ```js
-const dropElements = (arr, func) => {
-  while (arr.length > 0 && !func(arr[0])) arr = arr.slice(1);
-  return arr;
-};
+const drop = (arr, n = 1) => arr.slice(n);
 ```
 
 <details>
 <summary>Examples</summary>
 
 ```js
-dropElements([1, 2, 3, 4], n => n >= 3); // [3,4]
+drop([1, 2, 3]); // [2,3]
+drop([1, 2, 3], 2); // [3]
+drop([1, 2, 3], 42); // []
 ```
 
 </details>
@@ -885,6 +1128,58 @@ const dropRight = (arr, n = 1) => arr.slice(0, -n);
 dropRight([1, 2, 3]); // [1,2]
 dropRight([1, 2, 3], 2); // [1]
 dropRight([1, 2, 3], 42); // []
+```
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
+
+### dropRightWhile
+
+Removes elements from the end of an array until the passed function returns `true`. Returns the remaining elements in the array.
+
+Loop through the array, using `Array.slice()` to drop the last element of the array until the returned value from the function is `true`.
+Returns the remaining elements.
+
+```js
+const dropRightWhile = (arr, func) => {
+  while (arr.length > 0 && !func(arr[arr.length - 1])) arr = arr.slice(0, -1);
+  return arr;
+};
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+dropRightWhile([1, 2, 3, 4], n => n < 3); // [1, 2]
+```
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
+
+### dropWhile
+
+Removes elements in an array until the passed function returns `true`. Returns the remaining elements in the array.
+
+Loop through the array, using `Array.slice()` to drop the first element of the array until the returned value from the function is `true`.
+Returns the remaining elements.
+
+```js
+const dropWhile = (arr, func) => {
+  while (arr.length > 0 && !func(arr[0])) arr = arr.slice(1);
+  return arr;
+};
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+dropWhile([1, 2, 3, 4], n => n >= 3); // [3,4]
 ```
 
 </details>
@@ -940,10 +1235,10 @@ filterNonUnique([1, 2, 2, 3, 4, 4, 5]); // [1,3,5]
 
 Returns the last element for which the provided function returns a truthy value.
 
-Use `Array.filter()` to remove elements for which `fn` returns falsey values, `Array.slice(-1)` to get the last one.
+Use `Array.filter()` to remove elements for which `fn` returns falsey values, `Array.pop()` to get the last one.
 
 ```js
-const findLast = (arr, fn) => arr.filter(fn).slice(-1)[0];
+const findLast = (arr, fn) => arr.filter(fn).pop();
 ```
 
 <details>
@@ -963,14 +1258,14 @@ findLast([1, 2, 3, 4], n => n % 2 === 1); // 3
 Returns the index of the last element for which the provided function returns a truthy value.
 
 Use `Array.map()` to map each element to an array with its index and value.
-Use `Array.filter()` to remove elements for which `fn` returns falsey values, `Array.slice(-1)` to get the last one.
+Use `Array.filter()` to remove elements for which `fn` returns falsey values, `Array.pop()` to get the last one.
 
 ```js
 const findLastIndex = (arr, fn) =>
   arr
     .map((val, i) => [i, val])
-    .filter(val => fn(val[1], val[0], arr))
-    .slice(-1)[0][0];
+    .filter(([i, val]) => fn(val, i, arr))
+    .pop()[0];
 ```
 
 <details>
@@ -996,9 +1291,7 @@ Omit the second argument, `depth` to flatten only to a depth of `1` (single flat
 
 ```js
 const flatten = (arr, depth = 1) =>
-  depth != 1
-    ? arr.reduce((a, v) => a.concat(Array.isArray(v) ? flatten(v, depth - 1) : v), [])
-    : arr.reduce((a, v) => a.concat(v), []);
+  arr.reduce((a, v) => a.concat(depth > 1 && Array.isArray(v) ? flatten(v, depth - 1) : v), []);
 ```
 
 <details>
@@ -1242,6 +1535,33 @@ initializeArrayWithValues(5, 2); // [2,2,2,2,2]
 <br>[⬆ Back to top](#table-of-contents)
 
 
+### initializeNDArray
+
+Create a n-dimensional array with given value.
+
+Use recursion.
+Use `Array.map()` to generate rows where each is a new array initialized using `initializeNDArray`.
+
+```js
+const initializeNDArray = (val, ...args) =>
+  args.length === 0
+    ? val
+    : Array.from({ length: args[0] }).map(() => initializeNDArray(val, ...args.slice(1)));
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+initializeNDArray(1, 3); // [1,1,1]
+initializeNDArray(5, 2, 2, 2); // [[[5,5],[5,5]],[[5,5],[5,5]]]
+```
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
+
 ### intersection
 
 Returns a list of elements that exist in both arrays.
@@ -1324,10 +1644,12 @@ Return `0` if the `direction` changes or the `direction` if the last element is 
 
 ```js
 const isSorted = arr => {
-  const direction = arr[0] > arr[1] ? -1 : 1;
-  for (let [i, val] of arr.entries())
-    if (i === arr.length - 1) return direction;
+  let direction = -(arr[0] - arr[1]);
+  for (let [i, val] of arr.entries()) {
+    direction = !direction ? -(arr[i - 1] - arr[i]) : direction;
+    if (i === arr.length - 1) return !direction ? 0 : direction;
     else if ((val - arr[i + 1]) * direction > 0) return 0;
+  }
 };
 ```
 
@@ -1357,9 +1679,11 @@ Omit the third argument, `end`, to use the same value as `separator` by default.
 const join = (arr, separator = ',', end = separator) =>
   arr.reduce(
     (acc, val, i) =>
-      i == arr.length - 2
+      i === arr.length - 2
         ? acc + val + end
-        : i == arr.length - 1 ? acc + val : acc + val + separator,
+        : i === arr.length - 1
+          ? acc + val
+          : acc + val + separator,
     ''
   );
 ```
@@ -1426,7 +1750,7 @@ longestItem([1, 2, 3], 'foobar'); // 'foobar'
 <br>[⬆ Back to top](#table-of-contents)
 
 
-### mapObject
+### mapObject ![advanced](/advanced.svg)
 
 Maps the values of an array to an object using a function, where the key-value pairs consist of the original value as the key and the mapped value.
 
@@ -1501,6 +1825,30 @@ minN([1, 2, 3], 2); // [1,2]
 <br>[⬆ Back to top](#table-of-contents)
 
 
+### none
+
+Returns `true` if the provided predicate function returns `false` for all elements in a collection, `false` otherwise.
+
+Use `Array.some()` to test if any elements in the collection return `true` based on `fn`.
+Omit the second argument, `fn`, to use `Boolean` as a default.
+
+```js
+const none = (arr, fn = Boolean) => !arr.some(fn);
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+none([0, 1, 3, 0], x => x == 2); // true
+none([0, 0, 0]); // true
+```
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
+
 ### nthElement
 
 Returns the nth element of an array.
@@ -1519,6 +1867,31 @@ const nthElement = (arr, n = 0) => (n > 0 ? arr.slice(n, n + 1) : arr.slice(n))[
 ```js
 nthElement(['a', 'b', 'c'], 1); // 'b'
 nthElement(['a', 'b', 'b'], -3); // 'a'
+```
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
+
+### offset
+
+Moves the specified amount of elements to the end of the array.
+
+Use `Array.slice()` twice to get the elements after the specified index and the elements before that.
+Use the spread operator(`...`) to combine the two into one array.
+If `offset` is negative, the elements will be moved from end to start.
+
+```js
+const offset = (arr, offset) => [...arr.slice(offset), ...arr.slice(0, offset)];
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+offset([1, 2, 3, 4, 5], 2); // [3, 4, 5, 1, 2]
+offset([1, 2, 3, 4, 5], -2); // [4, 5, 1, 2, 3]
 ```
 
 </details>
@@ -1550,6 +1923,42 @@ const partition = (arr, fn) =>
 ```js
 const users = [{ user: 'barney', age: 36, active: false }, { user: 'fred', age: 40, active: true }];
 partition(users, o => o.active); // [[{ 'user': 'fred',    'age': 40, 'active': true }],[{ 'user': 'barney',  'age': 36, 'active': false }]]
+```
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
+
+### permutations
+
+⚠️ **WARNING**: This function's execution time increases exponentially with each array element. Anything more than 8 to 10 entries will cause your browser to hang as it tries to solve all the different combinations.
+
+Generates all permutations of an array's elements (contains duplicates).
+
+Use recursion.
+For each element in the given array, create all the partial permutations for the rest of its elements.
+Use `Array.map()` to combine the element with each partial permutation, then `Array.reduce()` to combine all permutations in one array.
+Base cases are for array `length` equal to `2` or `1`.
+
+```js
+const permutations = arr => {
+  if (arr.length <= 2) return arr.length === 2 ? [arr, [arr[1], arr[0]]] : arr;
+  return arr.reduce(
+    (acc, item, i) =>
+      acc.concat(
+        permutations([...arr.slice(0, i), ...arr.slice(i + 1)]).map(val => [item, ...val])
+      ),
+    []
+  );
+};
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+permutations([1, 33, 5]); // [ [ 1, 33, 5 ], [ 1, 5, 33 ], [ 33, 1, 5 ], [ 33, 5, 1 ], [ 5, 1, 33 ], [ 5, 33, 1 ] ]
 ```
 
 </details>
@@ -1653,6 +2062,40 @@ let pulled = pullAtValue(myArray, ['b', 'd']); // myArray = [ 'a', 'c' ] , pulle
 <br>[⬆ Back to top](#table-of-contents)
 
 
+### pullBy ![advanced](/advanced.svg)
+
+Mutates the original array to filter out the values specified, based on a given iterator function.
+
+Check if the last argument provided in a function.
+Use `Array.map()` to apply the iterator function `fn` to all array elements.
+Use `Array.filter()` and `Array.includes()` to pull out the values that are not needed.
+Use `Array.length = 0` to mutate the passed in an array by resetting it's length to zero and `Array.push()` to re-populate it with only the pulled values.
+
+```js
+const pullBy = (arr, ...args) => {
+  const length = args.length;
+  let fn = length > 1 ? args[length - 1] : undefined;
+  fn = typeof fn == 'function' ? (args.pop(), fn) : undefined;
+  let argState = (Array.isArray(args[0]) ? args[0] : args).map(val => fn(val));
+  let pulled = arr.filter((v, i) => !argState.includes(fn(v)));
+  arr.length = 0;
+  pulled.forEach(v => arr.push(v));
+};
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+var myArray = [{ x: 1 }, { x: 2 }, { x: 3 }, { x: 1 }];
+pullBy(myArray, [{ x: 1 }, { x: 3 }], o => o.x); // myArray = [{ x: 2 }]
+```
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
+
 ### reducedFilter
 
 Filter an array of objects based on a condition while also filtering out unspecified keys.
@@ -1747,6 +2190,27 @@ reduceWhich(
 <br>[⬆ Back to top](#table-of-contents)
 
 
+### reject
+
+Takes a predicate and array, like `Array.filter()`, but only keeps `x` if `pred(x) === false`.
+
+```js
+const reject = (pred, array) => array.filter((...args) => !pred(...args));
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+reject(x => x % 2 === 0, [1, 2, 3, 4, 5]); // [1, 3, 5]
+reject(word => word.length > 4, ['Apple', 'Pear', 'Kiwi', 'Banana']); // ['Pear', 'Kiwi']
+```
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
+
 ### remove
 
 Removes elements from an array for which the given function returns `false`.
@@ -1768,7 +2232,7 @@ const remove = (arr, func) =>
 <summary>Examples</summary>
 
 ```js
-remove([1, 2, 3, 4], n => n % 2 == 0); // [2, 4]
+remove([1, 2, 3, 4], n => n % 2 === 0); // [2, 4]
 ```
 
 </details>
@@ -1911,21 +2375,18 @@ sortedIndex([30, 50], 40); // 1
 <br>[⬆ Back to top](#table-of-contents)
 
 
-### sortedLastIndex
+### sortedIndexBy
 
-Returns the highest index at which value should be inserted into array in order to maintain its sort order.
+Returns the lowest index at which value should be inserted into array in order to maintain its sort order, based on a provided iterator function.
 
 Check if the array is sorted in descending order (loosely).
-Use `Array.map()` to map each element to an array with its index and value.
-Use `Array.filter()` to find all possible positions where the element could be inserted, `Array.slice(-1)` to get the last one.
+Use `Array.findIndex()` to find the appropriate index where the element should be inserted, based on the iterator function `fn`.
 
 ```js
-const sortedLastIndex = (arr, n) => {
-  const isDescending = arr[0] > arr[arr.length - 1];
-  const index = arr
-    .map((val, i) => [i, val])
-    .filter(el => (isDescending ? n >= el[1] : n >= el[1]))
-    .slice(-1)[0][0];
+const sortedIndexBy = (arr, n, fn) => {
+  const isDescending = fn(arr[0]) > fn(arr[arr.length - 1]);
+  const val = fn(n);
+  const index = arr.findIndex(el => (isDescending ? val >= fn(el) : val <= fn(el)));
   return index === -1 ? arr.length : index;
 };
 ```
@@ -1934,7 +2395,96 @@ const sortedLastIndex = (arr, n) => {
 <summary>Examples</summary>
 
 ```js
-sortedLastIndex([10, 20, 30, 30, 40], 30); // 3
+sortedIndexBy([{ x: 4 }, { x: 5 }], { x: 4 }, o => o.x); // 0
+```
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
+
+### sortedLastIndex
+
+Returns the highest index at which value should be inserted into array in order to maintain its sort order.
+
+Check if the array is sorted in descending order (loosely).
+Use `Array.reverse()` and `Array.findIndex()` to find the appropriate last index where the element should be inserted.
+
+```js
+const sortedLastIndex = (arr, n) => {
+  const isDescending = arr[0] > arr[arr.length - 1];
+  const index = arr.reverse().findIndex(el => (isDescending ? n <= el : n >= el));
+  return index === -1 ? 0 : arr.length - index;
+};
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+sortedLastIndex([10, 20, 30, 30, 40], 30); // 4
+```
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
+
+### sortedLastIndexBy
+
+Returns the highest index at which value should be inserted into array in order to maintain its sort order, based on a provided iterator function.
+
+Check if the array is sorted in descending order (loosely).
+Use `Array.map()` to apply the iterator function to all elements of the array.
+Use `Array.reverse()` and `Array.findIndex()` to find the appropriate last index where the element should be inserted, based on the provided iterator function.
+
+```js
+const sortedLastIndexBy = (arr, n, fn) => {
+  const isDescending = fn(arr[0]) > fn(arr[arr.length - 1]);
+  const val = fn(n);
+  const index = arr
+    .map(fn)
+    .reverse()
+    .findIndex(el => (isDescending ? val <= el : val >= el));
+  return index === -1 ? 0 : arr.length - index;
+};
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+sortedLastIndexBy([{ x: 4 }, { x: 5 }], { x: 4 }, o => o.x); // 1
+```
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
+
+### stableSort ![advanced](/advanced.svg)
+
+Performs stable sorting of an array, preserving the initial indexes of items when their values are the same. 
+Does not mutate the original array, but returns a new array instead.
+
+Use `Array.map()` to pair each element of the input array with its corresponding index. 
+Use `Array.sort()` and a `compare` function to sort the list, preserving their initial order if the items compared are equal.
+Use `Array.map()` to convert back to the initial array items.
+
+```js
+const stableSort = (arr, compare) =>
+  arr
+    .map((item, index) => ({ item, index }))
+    .sort((a, b) => compare(a.item, b.item) || a.index - b.index)
+    .map(({ item }) => item);
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+const arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const stable = stableSort(arr, () => 0); // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 ```
 
 </details>
@@ -2085,6 +2635,98 @@ const takeRight = (arr, n = 1) => arr.slice(arr.length - n, arr.length);
 ```js
 takeRight([1, 2, 3], 2); // [ 2, 3 ]
 takeRight([1, 2, 3]); // [3]
+```
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
+
+### takeRightWhile
+
+Removes elements from the end of an array until the passed function returns `true`. Returns the removed elements.
+
+Loop through the array, using a `for...of` loop over `Array.keys()` until the returned value from the function is `true`.
+Return the removed elements, using `Array.reverse()` and `Array.slice()`.
+
+```js
+const takeRightWhile = (arr, func) => {
+  for (let i of arr.reverse().keys())
+    if (func(arr[i])) return arr.reverse().slice(arr.length - i, arr.length);
+  return arr;
+};
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+takeRightWhile([1, 2, 3, 4], n => n < 3); // [3, 4]
+```
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
+
+### takeWhile
+
+Removes elements in an array until the passed function returns `true`. Returns the removed elements.
+
+Loop through the array, using a `for...of` loop over `Array.entries()` until the returned value from the function is `true`.
+Return the removed elements, using `Array.slice()`.
+
+```js
+const takeWhile = (arr, func) => {
+  for (const [i, val] of arr.entries()) if (func(val)) return arr.slice(0, i);
+  return arr;
+};
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+takeWhile([1, 2, 3, 4], n => n >= 3); // [1, 2]
+```
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
+
+### toHash
+
+Reduces a given Array-like into a value hash (keyed data store).
+
+Given an Iterable or Array-like structure, call `Array.prototype.reduce.call()` on the provided object to step over it and return an Object, keyed by the reference value.
+
+```js
+const toHash = (object, key) =>
+  Array.prototype.reduce.call(
+    object,
+    (acc, data, index) => ((acc[!key ? index : data[key]] = data), acc),
+    {}
+  );
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+toHash([4, 3, 2, 1]); // { 0: 4, 1: 3, 2: 2, 1: 1 }
+toHash([{ a: 'label' }], 'a'); // { label: { a: 'label' } }
+// A more in depth example:
+let users = [{ id: 1, first: 'Jon' }, { id: 2, first: 'Joe' }, { id: 3, first: 'Moe' }];
+let managers = [{ manager: 1, employees: [2, 3] }];
+// We use function here because we want a bindable reference, but a closure referencing the hash would work, too.
+managers.forEach(
+  manager =>
+    (manager.employees = manager.employees.map(function(id) {
+      return this[id];
+    }, toHash(users, 'id')))
+);
+managers; // [ { manager:1, employees: [ { id: 2, first: "Joe" }, { id: 3, first: "Moe" } ] } ]
 ```
 
 </details>
@@ -2352,22 +2994,19 @@ zipObject(['a', 'b'], [1, 2, 3]); // {a: 1, b: 2}
 
 Creates an array of elements, grouped based on the position in the original arrays and using function as the last value to specify how grouped values should be combined.
 
-Check if the last argument provided in a function.
+Check if the last argument provided is a function.
 Use `Math.max()` to get the longest array in the arguments.
 Creates an array with that length as return value and use `Array.from()` with a map-function to create an array of grouped elements.
 If lengths of the argument-arrays vary, `undefined` is used where no value could be found.
 The function is invoked with the elements of each group `(...group)`.
 
 ```js
-const zipWith = (...arrays) => {
-  const length = arrays.length;
-  let fn = length > 1 ? arrays[length - 1] : undefined;
-  fn = typeof fn == 'function' ? (arrays.pop(), fn) : undefined;
-  const maxLength = Math.max(...arrays.map(x => x.length));
-  const result = Array.from({ length: maxLength }).map((_, i) => {
-    return Array.from({ length: arrays.length }, (_, k) => arrays[k][i]);
-  });
-  return fn ? result.map(arr => fn(...arr)) : result;
+const zipWith = (...array) => {
+  const fn = typeof array[array.length - 1] === 'function' ? array.pop() : undefined;
+  return Array.from(
+    { length: Math.max(...array.map(a => a.length)) },
+    (_, i) => (fn ? fn(...array.map(a => a[i])) : array.map(a => a[i]))
+  );
 };
 ```
 
@@ -2395,11 +3034,14 @@ zipWith(
 
 Converts the given array elements into `<li>` tags and appends them to the list of the given id.
 
-Use `Array.map()` and `document.querySelector()` to create a list of html tags.
+Use `Array.map()`, `document.querySelector()`, and an anonymous inner closure to create a list of html tags.
 
 ```js
 const arrayToHtmlList = (arr, listID) =>
-  arr.map(item => (document.querySelector('#' + listID).innerHTML += `<li>${item}</li>`));
+  (el => (
+    (el = document.querySelector('#' + listID)),
+    (el.innerHTML += arr.map(item => `<li>${item}</li>`).join(''))
+  ))();
 ```
 
 <details>
@@ -2440,6 +3082,8 @@ bottomVisible(); // true
 
 ### copyToClipboard ![advanced](/advanced.svg)
 
+⚠️ **NOTICE:** The same functionality can be easily implemented by using the new asynchronous Clipboard API, which is still experimental but should be used in the future instead of this snippet. Find out more about it [here](https://github.com/w3c/clipboard-apis/blob/master/explainer.adoc#writing-to-the-clipboard).
+
 Copy a string to the clipboard. Only works as a result of user action (i.e. inside a `click` event listener).
 
 Create a new `<textarea>` element, fill it with the supplied data and add it to the HTML document.
@@ -2473,6 +3117,42 @@ const copyToClipboard = str => {
 
 ```js
 copyToClipboard('Lorem ipsum'); // 'Lorem ipsum' copied to clipboard.
+```
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
+
+### counter ![advanced](/advanced.svg)
+
+Creates a counter with the specified range, step and duration for the specified selector.
+
+Check if `step` has the proper sign and change it accordingly.
+Use `setInterval()` in combination with `Math.abs()` and `Math.floor()` to calculate the time between each new text draw.
+Use `document.querySelector().innerHTML` to update the value of the selected element.
+Omit the fourth parameter, `step`, to use a default step of `1`.
+Omit the fifth parameter, `duration`, to use a default duration of `2000`ms.
+
+```js
+const counter = (selector, start, end, step = 1, duration = 2000) => {
+  let current = start,
+    _step = (end - start) * step < 0 ? -step : step,
+    timer = setInterval(() => {
+      current += _step;
+      document.querySelector(selector).innerHTML = current;
+      if (current >= end) document.querySelector(selector).innerHTML = end;
+      if (current >= end) clearInterval(timer);
+    }, Math.abs(Math.floor(duration / (end - start))));
+  return timer;
+};
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+counter('#my-id', 1, 1000, 5, 2000); // Creates a 2-second timer for the element with id="my-id"
 ```
 
 </details>
@@ -2794,6 +3474,50 @@ httpsRedirect(); // If you are on http://mydomain.com, you are redirected to htt
 <br>[⬆ Back to top](#table-of-contents)
 
 
+### isBrowserTabFocused
+
+Returns `true` if the browser tab of the page is focused, `false` otherwise.
+
+Use the `Document.hidden` property, introduced by the Page Visibility API to check if the browser tab of the page is visible or hidden.
+
+```js
+const isBrowserTabFocused = () => !document.hidden;
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+isBrowserTabFocused(); // true
+```
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
+
+### nodeListToArray
+
+Converts a `NodeList` to an array.
+
+Use `Array.prototype.slice()` and `Function.prototype.call()` to convert a `NodeList` to an array.
+
+```js
+const nodeListToArray = nodeList => Array.prototype.slice.call(nodeList);
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+nodeListToArray(document.childNodes); // [ <!DOCTYPE html>, html ]
+```
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
+
 ### observeMutations ![advanced](/advanced.svg)
 
 Returns a new MutationObserver and runs the provided callback for each mutation on the specified element.
@@ -2931,6 +3655,84 @@ onUserInputChange(type => {
 <br>[⬆ Back to top](#table-of-contents)
 
 
+### prefix
+
+Returns the prefixed version (if necessary) of a CSS property that the browser supports.
+
+Use `Array.findIndex()` on an array of vendor prefix strings to test if `document.body` has one of them defined in its `CSSStyleDeclaration` object, otherwise return `null`. 
+Use `String.charAt()` and `String.toUpperCase()` to capitalize the property, which will be appended to the vendor prefix string.
+
+```js
+const prefix = prop => {
+  const capitalizedProp = prop.charAt(0).toUpperCase() + prop.slice(1);
+  const prefixes = ['', 'webkit', 'moz', 'ms', 'o'];
+  const i = prefixes.findIndex(
+    prefix => typeof document.body.style[prefix ? prefix + capitalizedProp : prop] !== 'undefined'
+  );
+  return i !== -1 ? (i === 0 ? prop : prefixes[i] + capitalizedProp) : null;
+};
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+prefix('appearance'); // 'appearance' on a supported browser, otherwise 'webkitAppearance', 'mozAppearance', 'msAppearance' or 'oAppearance'
+```
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
+
+### recordAnimationFrames
+
+Invokes the provided callback on each animation frame.
+
+Use recursion. 
+Provided that `running` is `true`, continue invoking `window.requestAnimationFrame()` which invokes the provided callback. 
+Return an object with two methods `start` and `stop` to allow manual control of the recording. 
+Omit the second argument, `autoStart`, to implicitly call `start` when the function is invoked.
+
+```js
+const recordAnimationFrames = (callback, autoStart = true) => {
+  let running = true,
+    raf;
+  const stop = () => {
+    running = false;
+    cancelAnimationFrame(raf);
+  };
+  const start = () => {
+    running = true;
+    run();
+  };
+  const run = () => {
+    raf = requestAnimationFrame(() => {
+      callback();
+      if (running) run();
+    });
+  };
+  if (autoStart) start();
+  return { start, stop };
+};
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+const cb = () => console.log('Animation frame fired');
+const recorder = recordAnimationFrames(cb); // logs 'Animation frame fired' on each animation frame
+recorder.stop(); // stops logging
+recorder.start(); // starts again
+const recorder2 = recordAnimationFrames(cb, false); // `start` needs to be explicitly called to begin recording frames
+```
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
+
 ### redirect
 
 Redirects to a specified URL.
@@ -2965,9 +3767,8 @@ Return a promise, listening for `onmessage` and `onerror` events and resolving t
 
 ```js
 const runAsync = fn => {
-  const blob = `var fn = ${fn.toString()}; postMessage(fn());`;
   const worker = new Worker(
-    URL.createObjectURL(new Blob([blob]), {
+    URL.createObjectURL(new Blob([`postMessage((${fn})());`]), {
       type: 'application/javascript; charset=utf-8'
     })
   );
@@ -3086,6 +3887,33 @@ show(...document.querySelectorAll('img')); // Shows all <img> elements on the pa
 <br>[⬆ Back to top](#table-of-contents)
 
 
+### smoothScroll
+
+Smoothly scrolls the element on which it's called into the visible area of the browser window.
+
+Use `.scrollIntoView` method to scroll the element. 
+Pass `{ behavior: 'smooth' }` to `.scrollIntoView` so it scrolls smoothly.
+
+```js
+const smoothScroll = element =>
+  document.querySelector(element).scrollIntoView({
+    behavior: 'smooth'
+  });
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+smoothScroll('#fooBar'); // scrolls smoothly to the element with the id fooBar
+smoothScroll('.fooBar'); // scrolls smoothly to the first element with a class of fooBar
+```
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
+
 ### toggleClass
 
 Toggle a class for an element.
@@ -3174,6 +4002,28 @@ formatDuration(34325055574); // '397 days, 6 hours, 44 minutes, 15 seconds, 574 
 <br>[⬆ Back to top](#table-of-contents)
 
 
+### getColonTimeFromDate
+
+Returns a string of the form `HH:MM:SS` from a `Date` object.
+
+Use `Date.toString()` and `String.slice()` to get the `HH:MM:SS` part of a given `Date` object.
+
+```js
+const getColonTimeFromDate = date => date.toTimeString().slice(0, 8);
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+getColonTimeFromDate(new Date()); // "08:38:00"
+```
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
+
 ### getDaysDiffBetweenDates
 
 Returns the difference (in days) between two dates.
@@ -3197,18 +4047,51 @@ getDaysDiffBetweenDates(new Date('2017-12-13'), new Date('2017-12-22')); // 9
 <br>[⬆ Back to top](#table-of-contents)
 
 
+### getMeridiemSuffixOfInteger
+
+Converts an integer to a suffixed string, adding `am` or `pm` based on its value.
+
+Use the modulo operator (`%`) and conditional checks to transform an integer to a stringified 12-hour format with meridiem suffix.
+
+```js
+const getMeridiemSuffixOfInteger = num =>
+  num === 0 || num === 24
+    ? 12 + 'am'
+    : num === 12
+      ? 12 + 'pm'
+      : num < 12
+        ? (num % 12) + 'am'
+        : (num % 12) + 'pm';
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+getMeridiemSuffixOfInteger(0); // "12am"
+getMeridiemSuffixOfInteger(11); // "11am"
+getMeridiemSuffixOfInteger(13); // "1pm"
+getMeridiemSuffixOfInteger(25); // "1pm"
+```
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
+
 ### tomorrow
 
 Results in a string representation of tomorrow's date.
 Use `new Date()` to get today's date, adding one day using `Date.getDate()` and `Date.setDate()`, and converting the Date object to a string.
 
 ```js
-const tomorrow = () => {
+const tomorrow = (long = false) => {
   let t = new Date();
   t.setDate(t.getDate() + 1);
-  return `${t.getFullYear()}-${String(t.getMonth() + 1).padStart(2, '0')}-${String(
+  const ret = `${t.getFullYear()}-${String(t.getMonth() + 1).padStart(2, '0')}-${String(
     t.getDate()
   ).padStart(2, '0')}`;
+  return !long ? ret : `${ret}T00:00:00`;
 };
 ```
 
@@ -3217,6 +4100,7 @@ const tomorrow = () => {
 
 ```js
 tomorrow(); // 2017-12-27 (if current date is 2017-12-26)
+tomorrow(true); // 2017-12-27T00:00:00 (if current date is 2017-12-26)
 ```
 
 </details>
@@ -3225,6 +4109,37 @@ tomorrow(); // 2017-12-27 (if current date is 2017-12-26)
 
 ---
  ## 🎛️ Function
+
+### attempt
+
+Attempts to invoke a function with the provided arguments, returning either the result or the caught error object.
+
+Use a `try... catch` block to return either the result of the function or an appropriate error.
+
+```js
+const attempt = (fn, ...args) => {
+  try {
+    return fn(...args);
+  } catch (e) {
+    return e instanceof Error ? e : new Error(e);
+  }
+};
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+var elements = attempt(function(selector) {
+  return document.querySelectorAll(selector);
+}, '>_>');
+if (elements instanceof Error) elements = []; // elements = []
+```
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
 
 ### bind
 
@@ -3341,7 +4256,10 @@ const compose = (...fns) => fns.reduce((f, g) => (...args) => f(g(...args)));
 ```js
 const add5 = x => x + 5;
 const multiply = (x, y) => x * y;
-const multiplyAndAdd5 = compose(add5, multiply);
+const multiplyAndAdd5 = compose(
+  add5,
+  multiply
+);
 multiplyAndAdd5(5, 2); // 15
 ```
 
@@ -3376,6 +4294,33 @@ addAndSquare(1, 2); // 9
 <br>[⬆ Back to top](#table-of-contents)
 
 
+### converge
+
+Accepts a converging function and a list of branching functions and returns a function that applies each branching function to the arguments and the results of the branching functions are passed as arguments to the converging function.
+
+Use `Array.map()` and `Function.apply()` to apply each function to the given arguments.
+Use the spread operator (`...`) to call `coverger` with the results of all other functions.
+
+```js
+const converge = (converger, fns) => (...args) => converger(...fns.map(fn => fn.apply(null, args)));
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+const average = converge((a, b) => a / b, [
+  arr => arr.reduce((a, v) => a + v, 0),
+  arr => arr.length
+]);
+average([1, 2, 3, 4, 5, 6, 7]); // 4
+```
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
+
 ### curry
 
 Curries a function.
@@ -3396,6 +4341,41 @@ const curry = (fn, arity = fn.length, ...args) =>
 ```js
 curry(Math.pow)(2)(10); // 1024
 curry(Math.min, 3)(10)(50)(2); // 2
+```
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
+
+### debounce
+
+Creates a debounced function that delays invoking the provided function until at least `ms` milliseconds have elapsed since the last time it was invoked.
+
+Each time the debounced function is invoked, clear the current pending timeout with `clearTimeout()` and use `setTimeout()` to create a new timeout that delays invoking the function until at least `ms` milliseconds has elapsed. Use `Function.apply()` to apply the `this` context to the function and provide the necessary arguments.
+Omit the second argument, `ms`, to set the timeout at a default of 0 ms.
+
+```js
+const debounce = (fn, ms = 0) => {
+  let timeoutId;
+  return function(...args) {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => fn.apply(this, args), ms);
+  };
+};
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+window.addEventListener(
+  'resize',
+  debounce(() => {
+    console.log(window.innerWidth);
+    console.log(window.innerHeight);
+  }, 250)
+); // Will log the window dimensions at most every 250ms
 ```
 
 </details>
@@ -3431,7 +4411,7 @@ defer(longRunningFunction); // Browser will update the HTML then run the functio
 <br>[⬆ Back to top](#table-of-contents)
 
 
-### defer
+### delay
 
 Invokes the provided function after `wait` milliseconds.
 
@@ -3475,6 +4455,50 @@ const functionName = fn => (console.debug(fn.name), fn);
 
 ```js
 functionName(Math.max); // max (logged in debug channel of console)
+```
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
+
+### hz
+
+Returns the number of times a function executed per second. 
+`hz` is the unit for `hertz`, the unit of frequency defined as one cycle per second.
+
+Use `performance.now()` to get the difference in milliseconds before and after the iteration loop to calculate the time elapsed executing the function `iterations` times. 
+Return the number of cycles per second by converting milliseconds to seconds and dividing it by the time elapsed. 
+Omit the second argument, `iterations`, to use the default of 100 iterations.
+
+```js
+const hz = (fn, iterations = 100) => {
+  const before = performance.now();
+  for (let i = 0; i < iterations; i++) fn();
+  return (1000 * iterations) / (performance.now() - before);
+};
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+// 10,000 element array
+const numbers = Array(10000)
+  .fill()
+  .map((_, i) => i);
+
+// Test functions with the same goal: sum up the elements in the array
+const sumReduce = () => numbers.reduce((acc, n) => acc + n, 0);
+const sumForLoop = () => {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) sum += numbers[i];
+  return sum;
+};
+
+// `sumForLoop` is nearly 10 times faster
+Math.round(hz(sumReduce)); // 572
+Math.round(hz(sumForLoop)); // 4784
 ```
 
 </details>
@@ -3531,7 +4555,7 @@ const negate = func => (...args) => !func(...args);
 <summary>Examples</summary>
 
 ```js
-[1, 2, 3, 4, 5, 6].filter(negate(n => n % 2 == 0)); // [ 1, 3, 5 ]
+[1, 2, 3, 4, 5, 6].filter(negate(n => n % 2 === 0)); // [ 1, 3, 5 ]
 ```
 
 </details>
@@ -3586,9 +4610,7 @@ const partial = (fn, ...partials) => (...args) => fn(...partials, ...args);
 <summary>Examples</summary>
 
 ```js
-function greet(greeting, name) {
-  return greeting + ' ' + name + '!';
-}
+const greet = (greeting, name) => greeting + ' ' + name + '!';
 const greetHello = partial(greet, 'Hello');
 greetHello('John'); // 'Hello John!'
 ```
@@ -3612,9 +4634,7 @@ const partialRight = (fn, ...partials) => (...args) => fn(...args, ...partials);
 <summary>Examples</summary>
 
 ```js
-function greet(greeting, name) {
-  return greeting + ' ' + name + '!';
-}
+const greet = (greeting, name) => greeting + ' ' + name + '!';
 const greetJohn = partialRight(greet, 'John');
 greetJohn('Hello'); // 'Hello John!'
 ```
@@ -3673,6 +4693,56 @@ async function sleepyWork() {
 <br>[⬆ Back to top](#table-of-contents)
 
 
+### throttle
+
+Creates a throttled function that only invokes the provided function at most once per every `wait` milliseconds
+
+Use `setTimeout()` and `clearTimeout()` to throttle the given method, `fn`.
+Use `Function.apply()` to apply the `this` context to the function and provide the necessary `arguments`.
+Use `Date.now()` to keep track of the last time the throttled function was invoked.
+Omit the second argument, `wait`, to set the timeout at a default of 0 ms.
+
+```js
+const throttle = (fn, wait) => {
+  let inThrottle, lastFn, lastTime;
+  return function() {
+    const context = this,
+      args = arguments;
+    if (!inThrottle) {
+      fn.apply(context, args);
+      lastTime = Date.now();
+      inThrottle = true;
+    } else {
+      clearTimeout(lastFn);
+      lastFn = setTimeout(function() {
+        if (Date.now() - lastTime >= wait) {
+          fn.apply(context, args);
+          lastTime = Date.now();
+        }
+      }, wait - (Date.now() - lastTime));
+    }
+  };
+};
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+window.addEventListener(
+  'resize',
+  throttle(function(evt) {
+    console.log(window.innerWidth);
+    console.log(window.innerHeight);
+  }, 250)
+); // Will log the window dimensions at most every 250ms
+```
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
+
 ### times
 
 Iterates over a callback `n` times
@@ -3694,6 +4764,38 @@ const times = (n, fn, context = undefined) => {
 var output = '';
 times(5, i => (output += i));
 console.log(output); // 01234
+```
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
+
+### uncurry
+
+Uncurries a function up to depth `n`.
+
+Return a variadic function.
+Use `Array.reduce()` on the provided arguments to call each subsequent curry level of the function.
+If the `length` of the provided arguments is less than `n` throw an error.
+Otherwise, call `fn` with the proper amount of arguments, using `Array.slice(0, n)`.
+Omit the second argument, `n`, to uncurry up to depth `1`.
+
+```js
+const uncurry = (fn, n = 1) => (...args) => {
+  const next = acc => args => args.reduce((x, y) => x(y), acc);
+  if (n > args.length) throw new RangeError('Arguments too few!');
+  return next(fn)(args.slice(0, n));
+};
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+const add = x => y => z => x + y + z;
+const uncurriedAdd = uncurry(add, 3);
+uncurriedAdd(1, 2, 3); // 6
 ```
 
 </details>
@@ -3729,12 +4831,59 @@ unfold(f, 10); // [-10, -20, -30, -40, -50]
 
 <br>[⬆ Back to top](#table-of-contents)
 
+
+### when
+
+Tests a value, `x`, against a predicate function. If `true`, return `fn(x)`. Else, return `x`. 
+
+Return a function expecting a single value, `x`, that returns the appropriate value based on `pred`.
+
+```js
+const when = (pred, whenTrue) => x => (pred(x) ? whenTrue(x) : x);
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+const doubleEvenNumbers = when(x => x % 2 === 0, x => x * 2);
+doubleEvenNumbers(2); // 4
+doubleEvenNumbers(1); // 1
+```
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
 ---
  ## ➗ Math
 
+### approximatelyEqual
+
+Checks if two numbers are approximately equal to each other.
+
+Use `Math.abs()` to compare the absolute difference of the two values to `epsilon`.
+Omit the third parameter, `epsilon`, to use a default value of `0.001`.
+
+```js
+const approximatelyEqual = (v1, v2, epsilon = 0.001) => Math.abs(v1 - v2) < epsilon;
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+approximatelyEqual(Math.PI / 2.0, 1.5708); // true
+```
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
+
 ### average
 
-Returns the average of an of two or more numbers.
+Returns the average of two or more numbers.
 
 Use `Array.reduce()` to add each value to an accumulator, initialized with a value of `0`, divide by the `length` of the array.
 
@@ -3780,6 +4929,41 @@ averageBy([{ n: 4 }, { n: 2 }, { n: 8 }, { n: 6 }], 'n'); // 5
 <br>[⬆ Back to top](#table-of-contents)
 
 
+### binomialCoefficient
+
+Evaluates the binomial coefficient of two integers `n` and `k`.
+
+Use `Number.isNaN()` to check if any of the two values is `NaN`.
+Check if `k` is less than `0`, greater than or equal to `n`, equal to `1` or `n - 1` and return the appropriate result.
+Check if `n - k` is less than `k` and switch their values accordingly.
+Loop from `2` through `k` and calculate the binomial coefficient.
+Use `Math.round()` to account for rounding errors in the calculation.
+
+```js
+const binomialCoefficient = (n, k) => {
+  if (Number.isNaN(n) || Number.isNaN(k)) return NaN;
+  if (k < 0 || k > n) return 0;
+  if (k === 0 || k === n) return 1;
+  if (k === 1 || k === n - 1) return n;
+  if (n - k < k) k = n - k;
+  let res = n;
+  for (let j = 2; j <= k; j++) res *= (n - j + 1) / j;
+  return Math.round(res);
+};
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+binomialCoefficient(8, 2); // 28
+```
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
+
 ### clampNumber
 
 Clamps `num` within the inclusive range specified by the boundary values `a` and `b`.
@@ -3797,6 +4981,28 @@ const clampNumber = (num, a, b) => Math.max(Math.min(num, Math.max(a, b)), Math.
 ```js
 clampNumber(2, 3, 5); // 3
 clampNumber(1, -1, -5); // -1
+```
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
+
+### degreesToRads
+
+Converts an angle from degrees to radians.
+
+Use `Math.PI` and the degree to radian formula to convert the angle from degrees to radians.
+
+```js
+const degreesToRads = deg => (deg * Math.PI) / 180.0;
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+degreesToRads(90.0); // ~1.5708
 ```
 
 </details>
@@ -3917,7 +5123,9 @@ const factorial = n =>
     ? (() => {
         throw new TypeError('Negative numbers are not allowed!');
       })()
-    : n <= 1 ? 1 : n * factorial(n - 1);
+    : n <= 1
+      ? 1
+      : n * factorial(n - 1);
 ```
 
 <details>
@@ -4124,7 +5332,7 @@ Return `false` if any of them divides the given number, else return `true`, unle
 ```js
 const isPrime = num => {
   const boundary = Math.floor(Math.sqrt(num));
-  for (var i = 2; i <= boundary; i++) if (num % i == 0) return false;
+  for (var i = 2; i <= boundary; i++) if (num % i === 0) return false;
   return num >= 2;
 };
 ```
@@ -4151,7 +5359,7 @@ The GCD formula uses recursion.
 ```js
 const lcm = (...arr) => {
   const gcd = (x, y) => (!y ? x : gcd(y, x % y));
-  const _lcm = (x, y) => x * y / gcd(x, y);
+  const _lcm = (x, y) => (x * y) / gcd(x, y);
   return [...arr].reduce((a, b) => _lcm(a, b));
 };
 ```
@@ -4186,7 +5394,7 @@ const luhnCheck = num => {
     .reverse()
     .map(x => parseInt(x));
   let lastDigit = arr.splice(0, 1)[0];
-  let sum = arr.reduce((acc, val, i) => (i % 2 !== 0 ? acc + val : acc + (val * 2) % 9 || 9), 0);
+  let sum = arr.reduce((acc, val, i) => (i % 2 !== 0 ? acc + val : acc + ((val * 2) % 9) || 9), 0);
   sum += lastDigit;
   return sum % 10 === 0;
 };
@@ -4287,7 +5495,7 @@ Use `Array.reduce()` to calculate how many numbers are below the value and how m
 
 ```js
 const percentile = (arr, val) =>
-  100 * arr.reduce((acc, v) => acc + (v < val ? 1 : 0) + (v === val ? 0.5 : 0), 0) / arr.length;
+  (100 * arr.reduce((acc, v) => acc + (v < val ? 1 : 0) + (v === val ? 0.5 : 0), 0)) / arr.length;
 ```
 
 <details>
@@ -4335,7 +5543,7 @@ const primes = num => {
   let arr = Array.from({ length: num - 1 }).map((x, i) => i + 2),
     sqroot = Math.floor(Math.sqrt(num)),
     numsTillSqroot = Array.from({ length: sqroot - 1 }).map((x, i) => i + 2);
-  numsTillSqroot.forEach(x => (arr = arr.filter(y => y % x !== 0 || y == x)));
+  numsTillSqroot.forEach(x => (arr = arr.filter(y => y % x !== 0 || y === x)));
   return arr;
 };
 ```
@@ -4345,6 +5553,28 @@ const primes = num => {
 
 ```js
 primes(10); // [2,3,5,7]
+```
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
+
+### radsToDegrees
+
+Converts an angle from radians to degrees.
+
+Use `Math.PI` and the radian to degree formula to convert the angle from radians to degrees.
+
+```js
+const radsToDegrees = rad => (rad * 180.0) / Math.PI;
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+radsToDegrees(Math.PI / 2); // 90
 ```
 
 </details>
@@ -4745,7 +5975,7 @@ const hashNode = val =>
 <summary>Examples</summary>
 
 ```js
-hashBrowser(JSON.stringify({ a: 'a', b: [1, 2, 3, 4], foo: { c: 'bar' } })).then(console.log); // '04aa106279f5977f59f9067fa9712afc4aedc6f5862a8defc34552d8c7206393'
+hashNode(JSON.stringify({ a: 'a', b: [1, 2, 3, 4], foo: { c: 'bar' } })).then(console.log); // '04aa106279f5977f59f9067fa9712afc4aedc6f5862a8defc34552d8c7206393'
 ```
 
 </details>
@@ -4887,6 +6117,43 @@ UUIDGeneratorNode(); // '79c7c136-60ee-40a2-beb2-856f1feabefc'
 ---
  ## 🗃️ Object
 
+### bindAll
+
+Binds methods of an object to the object itself, overwriting the existing method.
+
+Use `Array.forEach()` to return a `function` that uses `Function.apply()` to apply the given context (`obj`) to `fn` for each function specified.
+
+```js
+const bindAll = (obj, ...fns) =>
+  fns.forEach(
+    fn => (
+      (f = obj[fn]),
+      (obj[fn] = function() {
+        return f.apply(obj);
+      })
+    )
+  );
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+var view = {
+  label: 'docs',
+  click: function() {
+    console.log('clicked ' + this.label);
+  }
+};
+bindAll(view, 'click');
+jQuery(element).on('click', view.click); // Logs 'clicked docs' when clicked.
+```
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
+
 ### deepClone
 
 Creates a deep clone of an object.
@@ -4901,7 +6168,7 @@ const deepClone = obj => {
   Object.keys(clone).forEach(
     key => (clone[key] = typeof obj[key] === 'object' ? deepClone(obj[key]) : obj[key])
   );
-  return clone;
+  return Array.isArray(obj) ? (clone.length = obj.length) && Array.from(clone) : clone;
 };
 ```
 
@@ -5027,6 +6294,38 @@ findLastKey(
   },
   o => o['active']
 ); // 'pebbles'
+```
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
+
+### flattenObject
+
+Flatten an object with the paths for keys.
+
+Use recursion.
+Use `Object.keys(obj)` combined with `Array.reduce()` to convert every leaf node to a flattened path node.
+If the value of a key is an object, the function calls itself with the appropriate `prefix` to create the path using `Object.assign()`.
+Otherwise, it adds the appropriate prefixed key-value pair to the accumulator object.
+You should always omit the second argument, `prefix`, unless you want every key to have a prefix.
+
+```js
+const flattenObject = (obj, prefix = '') =>
+  Object.keys(obj).reduce((acc, k) => {
+    const pre = prefix.length ? prefix + '.' : '';
+    if (typeof obj[k] === 'object') Object.assign(acc, flattenObject(obj[k], pre + k));
+    else acc[pre + k] = obj[k];
+    return acc;
+  }, {});
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+flattenObject({ a: { b: { c: 1 } }, d: 1 }); // { 'a.b.c': 1, d: 1 }
 ```
 
 </details>
@@ -5360,6 +6659,44 @@ merge(object, other); // { a: [ { x: 2 }, { y: 4 }, { z: 3 } ], b: [ 1, 2, 3 ], 
 <br>[⬆ Back to top](#table-of-contents)
 
 
+### nest
+
+Given a flat array of objects linked to one another, it will nest them recursively.
+Useful for nesting comments, such as the ones on reddit.com.
+
+Use recursion. 
+Use `Array.filter()` to filter the items where the `id` matches the `link`, then `Array.map()` to map each one to a new object that has a `children` property which recursively nests the items based on which ones are children of the current item. 
+Omit the second argument, `id`, to default to `null` which indicates the object is not linked to another one (i.e. it is a top level object). 
+Omit the third argument, `link`, to use `'parent_id'` as the default property which links the object to another one by its `id`.
+
+```js
+const nest = (items, id = null, link = 'parent_id') =>
+  items
+    .filter(item => item[link] === id)
+    .map(item => ({ ...item, children: nest(items, item.id) }));
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+// One top level comment
+const comments = [
+  { id: 1, parent_id: null },
+  { id: 2, parent_id: 1 },
+  { id: 3, parent_id: 1 },
+  { id: 4, parent_id: 2 },
+  { id: 5, parent_id: 4 }
+];
+const nestedComments = nest(comments); // [{ id: 1, parent_id: null, children: [...] }]
+```
+
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
+
 ### objectFromPairs
 
 Creates an object from the given key-value pairs.
@@ -5539,6 +6876,36 @@ pickBy({ a: 1, b: '2', c: 3 }, x => typeof x === 'number'); // { 'a': 1, 'c': 3 
 <br>[⬆ Back to top](#table-of-contents)
 
 
+### renameKeys
+
+Replaces the names of multiple object keys with the values provided.
+
+Use `Object.keys()` in combination with `Array.reduce()` and the spread operator (`...`) to get the object's keys and rename them according to `keysMap`.
+
+```js
+const renameKeys = (keysMap, obj) =>
+  Object.keys(obj).reduce(
+    (acc, key) => ({
+      ...acc,
+      ...{ [keysMap[key] || key]: obj[key] }
+    }),
+    {}
+  );
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+const obj = { name: 'Bobo', job: 'Front-End Master', shoeSize: 100 };
+renameKeys({ name: 'firstName', job: 'passion' }, obj); // { firstName: 'Bobo', passion: 'Front-End Master', shoeSize: 100 }
+```
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
+
 ### shallowClone
 
 Creates a shallow clone of an object.
@@ -5579,7 +6946,9 @@ const size = val =>
     ? val.length
     : val && typeof val === 'object'
       ? val.size || val.length || Object.keys(val).length
-      : typeof val === 'string' ? new Blob([val]).size : 0;
+      : typeof val === 'string'
+        ? new Blob([val]).size
+        : 0;
 ```
 
 <details>
@@ -5646,44 +7015,47 @@ truthCheckCollection([{ user: 'Tinky-Winky', sex: 'male' }, { user: 'Dipsy', sex
 
 <br>[⬆ Back to top](#table-of-contents)
 
----
- ## 📜 String
 
-### anagrams
+### unflattenObject ![advanced](/advanced.svg)
 
-⚠️ **WARNING**: This function's execution time increases exponentially with each character. Anything more than 8 to 10 characters will cause your browser to hang as it tries to solve all the different combinations.
+Unlatten an object with the paths for keys.
 
-Generates all anagrams of a string (contains duplicates).
-
-Use recursion.
-For each letter in the given string, create all the partial anagrams for the rest of its letters.
-Use `Array.map()` to combine the letter with each partial anagram, then `Array.reduce()` to combine all anagrams in one array.
-Base cases are for string `length` equal to `2` or `1`.
+Use `Object.keys(obj)` combined with `Array.reduce()` to convert flattened path node to a leaf node.
+If the value of a key contains a dot delimiter (`.`), use `Array.split('.')`, string transformations and `JSON.parse()` to create an object, then `Object.assign()` to create the leaf node.
+Otherwise, add the appropriate key-value pair to the accumulator object.
 
 ```js
-const anagrams = str => {
-  if (str.length <= 2) return str.length === 2 ? [str, str[1] + str[0]] : [str];
-  return str
-    .split('')
-    .reduce(
-      (acc, letter, i) =>
-        acc.concat(anagrams(str.slice(0, i) + str.slice(i + 1)).map(val => letter + val)),
-      []
-    );
-};
+const unflattenObject = obj =>
+  Object.keys(obj).reduce((acc, k) => {
+    if (k.indexOf('.') !== -1) {
+      const keys = k.split('.');
+      Object.assign(
+        acc,
+        JSON.parse(
+          '{' +
+            keys.map((v, i) => (i !== keys.length - 1 ? `"${v}":{` : `"${v}":`)).join('') +
+            obj[k] +
+            '}'.repeat(keys.length)
+        )
+      );
+    } else acc[k] = obj[k];
+    return acc;
+  }, {});
 ```
 
 <details>
 <summary>Examples</summary>
 
 ```js
-anagrams('abc'); // ['abc','acb','bac','bca','cab','cba']
+unflattenObject({ 'a.b.c': 1, d: 1 }); // { a: { b: { c: 1 } }, d: 1 }
 ```
 
 </details>
 
 <br>[⬆ Back to top](#table-of-contents)
 
+---
+ ## 📜 String
 
 ### byteSize
 
@@ -5888,6 +7260,37 @@ isAbsoluteURL('/foo/bar'); // false
 <br>[⬆ Back to top](#table-of-contents)
 
 
+### isAnagram
+
+Checks if a string is an anagram of another string (case-insensitive, ignores spaces, punctuation and special characters).
+
+Use `String.toLowerCase()`, `String.replace()` with an appropriate regular expression to remove unnecessary characters, `String.split('')`, `Array.sort()` and `Array.join('')` on both strings to normalize them, then check if their normalized forms are equal.
+
+```js
+const isAnagram = (str1, str2) => {
+  const normalize = str =>
+    str
+      .toLowerCase()
+      .replace(/[^a-z0-9]/gi, '')
+      .split('')
+      .sort()
+      .join('');
+  return normalize(str1) === normalize(str2);
+};
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+isAnagram('iceman', 'cinema'); // true
+```
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
+
 ### isLowerCase
 
 Checks if a string is lower case.
@@ -5965,23 +7368,43 @@ mask(1234567890, -4, '$'); // '$$$$567890'
 <br>[⬆ Back to top](#table-of-contents)
 
 
+### pad
+
+Pads a string on both sides with the specified character, if it's shorter than the specified length.
+
+Use `String.padStart()` and `String.padEnd()` to pad both sides of the given string.
+Omit the third argument, `char`, to use the whitespace character as the default padding character.
+
+```js
+const pad = (str, length, char = ' ') =>
+  str.padStart((str.length + length) / 2, char).padEnd(length, char);
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+pad('cat', 8); // '  cat   '
+pad(String(42), 6, '0'); // '004200'
+pad('foobar', 3); // 'foobar'
+```
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
+
 ### palindrome
 
 Returns `true` if the given string is a palindrome, `false` otherwise.
 
 Convert string `String.toLowerCase()` and use `String.replace()` to remove non-alphanumeric characters from it.
-Then, `String.split('')` into individual characters, `Array.reverse()`, `String.join('')` and compare to the original, unreversed string, after converting it `String.tolowerCase()`.
+Then, use the spread operator (`...`) to split string into individual characters, `Array.reverse()`, `String.join('')` and compare to the original, unreversed string, after converting it `String.tolowerCase()`.
 
 ```js
 const palindrome = str => {
   const s = str.toLowerCase().replace(/[\W_]/g, '');
-  return (
-    s ===
-    s
-      .split('')
-      .reverse()
-      .join('')
-  );
+  return s === [...s].reverse().join('');
 };
 ```
 
@@ -6027,6 +7450,28 @@ const PLURALS = {
 };
 const autoPluralize = pluralize(PLURALS);
 autoPluralize(2, 'person'); // 'people'
+```
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
+
+### removeNonASCII
+
+Removes non-printable ASCII characters.
+
+Use a regular expression to remove non-printable ASCII characters.
+
+```js
+const removeNonASCII = str => str.replace(/[^\x20-\x7E]/g, '');
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+removeNonASCII('äÄçÇéÉêlorem-ipsumöÖÐþúÚ'); // 'lorem-ipsum'
 ```
 
 </details>
@@ -6094,6 +7539,64 @@ const splitLines = str => str.split(/\r?\n/);
 
 ```js
 splitLines('This\nis a\nmultiline\nstring.\n'); // ['This', 'is a', 'multiline', 'string.' , '']
+```
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
+
+### stringPermutations
+
+⚠️ **WARNING**: This function's execution time increases exponentially with each character. Anything more than 8 to 10 characters will cause your browser to hang as it tries to solve all the different combinations.
+
+Generates all permutations of a string (contains duplicates).
+
+Use recursion.
+For each letter in the given string, create all the partial permutations for the rest of its letters.
+Use `Array.map()` to combine the letter with each partial permutation, then `Array.reduce()` to combine all permutations in one array.
+Base cases are for string `length` equal to `2` or `1`.
+
+```js
+const stringPermutations = str => {
+  if (str.length <= 2) return str.length === 2 ? [str, str[1] + str[0]] : [str];
+  return str
+    .split('')
+    .reduce(
+      (acc, letter, i) =>
+        acc.concat(stringPermutations(str.slice(0, i) + str.slice(i + 1)).map(val => letter + val)),
+      []
+    );
+};
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+stringPermutations('abc'); // ['abc','acb','bac','bca','cab','cba']
+```
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
+
+### stripHTMLTags
+
+Removes HTML/XML tags from string.
+
+Use a regular expression to remove HTML/XML tags from a string.
+
+```js
+const stripHTMLTags = str => str.replace(/<[^>]*>/g, '');
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+stripHTMLTags('<p><em>lorem</em> <strong>ipsum</strong></p>'); // 'lorem ipsum'
 ```
 
 </details>
@@ -6334,12 +7837,12 @@ getType(new Set([1, 2, 3])); // 'set'
 
 ### is
 
-Checks if the provided value is of the specified type (doesn't work with literals).
+Checks if the provided value is of the specified type.
 
-Use the `instanceof` operator to check if the provided value is of the specified `type`.
+Ensure the value is not `undefined` or `null` using `Array.includes()`, and compare the `constructor` property on the value with `type` to check if the provided value is of the specified `type`.
 
 ```js
-const is = (type, val) => val instanceof type;
+const is = (type, val) => ![, null].includes(val) && val.constructor === type;
 ```
 
 <details>
@@ -6353,11 +7856,11 @@ is(RegExp, /./g); // true
 is(Set, new Set()); // true
 is(WeakMap, new WeakMap()); // true
 is(WeakSet, new WeakSet()); // true
-is(String, ''); // false
+is(String, ''); // true
 is(String, new String('')); // true
-is(Number, 1); // false
+is(Number, 1); // true
 is(Number, new Number(1)); // true
-is(Boolean, true); // false
+is(Boolean, true); // true
 is(Boolean, new Boolean(true)); // true
 ```
 
@@ -6596,7 +8099,7 @@ isObjectLike(null); // false
 
 ### isPlainObject
 
-Checks if the provided value is an bbject created by the Object constructor.
+Checks if the provided value is an object created by the Object constructor.
 
 Check if the provided value is truthy, use `typeof` to check if it is an object and `Object.constructor` to make sure the constructor is equal to `Object`.
 
@@ -6906,9 +8409,10 @@ Pass `location.search` as the argument to apply to the current `url`.
 
 ```js
 const getURLParameters = url =>
-  url
-    .match(/([^?=&]+)(=([^&]*))/g)
-    .reduce((a, v) => ((a[v.slice(0, v.indexOf('='))] = v.slice(v.indexOf('=') + 1)), a), {});
+  (url.match(/([^?=&]+)(=([^&]*))/g) || []).reduce(
+    (a, v) => ((a[v.slice(0, v.indexOf('='))] = v.slice(v.indexOf('=') + 1)), a),
+    {}
+  );
 ```
 
 <details>
@@ -6916,6 +8420,7 @@ const getURLParameters = url =>
 
 ```js
 getURLParameters('http://url.com/page?name=Adam&surname=Smith'); // {name: 'Adam', surname: 'Smith'}
+getURLParameters('google.com'); // {}
 ```
 
 </details>
@@ -7067,6 +8572,71 @@ Logs: {
 <br>[⬆ Back to top](#table-of-contents)
 
 
+### isBrowser
+
+Determines if the current runtime environment is a browser so that front-end modules can run on the server (Node) without throwing errors.
+
+Use `Array.includes()` on the `typeof` values of both `window` and `document` (globals usually only available in a browser environment unless they were explicitly defined), which will return `true` if one of them is `undefined`. 
+`typeof` allows globals to be checked for existence without throwing a `ReferenceError`. 
+If both of them are not `undefined`, then the current environment is assumed to be a browser.
+
+```js
+const isBrowser = () => ![typeof window, typeof document].includes('undefined');
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+isBrowser(); // true (browser)
+isBrowser(); // false (Node)
+```
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
+
+### mostPerformant
+
+Returns the index of the function in an array of functions which executed the fastest.
+
+Use `Array.map()` to generate an array where each value is the total time taken to execute the function after `iterations` times. Use the difference in `performance.now()` values before and after to get the total time in milliseconds to a high degree of accuracy.
+Use `Math.min()` to find the minimum execution time, and return the index of that shortest time which corresponds to the index of the most performant function. 
+Omit the second argument, `iterations`, to use a default of 10,000 iterations. The more iterations, the more reliable the result but the longer it will take.
+
+```js
+const mostPerformant = (fns, iterations = 10000) => {
+  const times = fns.map(fn => {
+    const before = performance.now();
+    for (let i = 0; i < iterations; i++) fn();
+    return performance.now() - before;
+  });
+  return times.indexOf(Math.min(...times));
+};
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+mostPerformant([
+  () => {
+    // Loops through the entire array before returning `false`
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, '10'].every(el => typeof el === 'number');
+  },
+  () => {
+    // Only needs to reach index `1` before returning false
+    [1, '2', 3, 4, 5, 6, 7, 8, 9, 10].every(el => typeof el === 'number');
+  }
+]); // 1
+```
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
+
 ### nthArg
 
 Creates a function that gets the argument at index `n`. If `n` is negative, the nth argument from the end is returned.
@@ -7166,8 +8736,8 @@ Use `Math.random` to generate a random 24-bit(6x4bits) hexadecimal number. Use b
 
 ```js
 const randomHexColorCode = () => {
-  let n = ((Math.random() * 0xfffff) | 0).toString(16);
-  return '#' + (n.length !== 6 ? ((Math.random() * 0xf) | 0).toString(16) + n : n);
+  let n = (Math.random() * 0xfffff * 1000000).toString(16);
+  return '#' + n.slice(0, 6);
 };
 ```
 
@@ -7247,6 +8817,33 @@ const timeTaken = callback => {
 
 ```js
 timeTaken(() => Math.pow(2, 10)); // 1024, (logged): timeTaken: 0.02099609375ms
+```
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
+
+### toCurrency
+
+Take a number and return specified currency formatting.
+
+Use `Intl.NumberFormat` to enable country / currency sensitive formatting.
+
+```js
+const toCurrency = (n, curr, LanguageFormat = undefined) =>
+  Intl.NumberFormat(LanguageFormat, { style: 'currency', currency: curr }).format(n);
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+toCurrency(123456.789, 'EUR'); // €123,456.79  | currency: Euro | currencyLangFormat: Local
+toCurrency(123456.789, 'USD', 'en-us'); // $123,456.79  | currency: US Dollar | currencyLangFormat: English (United States)
+toCurrency(123456.789, 'USD', 'fa'); // ۱۲۳٬۴۵۶٫۷۹ ؜$ | currency: US Dollar | currencyLangFormat: Farsi
+toCurrency(322342436423.2435, 'JPY'); // ¥322,342,436,423 | currency: Japanese Yen | currencyLangFormat: Local
+toCurrency(322342436423.2435, 'JPY', 'fi'); // 322 342 436 423 ¥ | currency: Japanese Yen | currencyLangFormat: Finnish
 ```
 
 </details>
@@ -7360,7 +8957,7 @@ yesNo('Foo', true); // true
 
 ## Collaborators
 
-| [<img src="https://github.com/Chalarangelo.png" width="100px;"/>](https://github.com/Chalarangelo)<br/> [<sub>Angelos Chalaris</sub>](https://github.com/Chalarangelo) | [<img src="https://github.com/Pl4gue.png" width="100px;"/>](https://github.com/Pl4gue)<br/> [<sub>David Wu</sub>](https://github.com/Pl4gue) | [<img src="https://github.com/fejes713.png" width="100px;"/>](https://github.com/fejes713)<br/> [<sub>Stefan Feješ</sub>](https://github.com/fejes713)  | [<img src="https://github.com/kingdavidmartins.png" width="100px;"/>](https://github.com/kingdavidmartins)<br/> [<sub>King David Martins</sub>](https://github.com/iamsoorena) | [<img src="https://github.com/iamsoorena.png" width="100px;"/>](https://github.com/iamsoorena)<br/> [<sub>Soorena Soleimani</sub>](https://github.com/iamsoorena) |
+| [<img src="https://github.com/Chalarangelo.png" width="100px;"/>](https://github.com/Chalarangelo)<br/> [<sub>Angelos Chalaris</sub>](https://github.com/Chalarangelo) | [<img src="https://github.com/flxwu.png" width="100px;"/>](https://github.com/flxwu)<br/> [<sub>Felix Wu</sub>](https://github.com/Pl4gue) | [<img src="https://github.com/fejes713.png" width="100px;"/>](https://github.com/fejes713)<br/> [<sub>Stefan Feješ</sub>](https://github.com/fejes713)  | [<img src="https://github.com/kingdavidmartins.png" width="100px;"/>](https://github.com/kingdavidmartins)<br/> [<sub>King David Martins</sub>](https://github.com/iamsoorena) | [<img src="https://github.com/iamsoorena.png" width="100px;"/>](https://github.com/iamsoorena)<br/> [<sub>Soorena Soleimani</sub>](https://github.com/iamsoorena) |
 | --- | --- | --- | --- | --- |
 | [<img src="https://github.com/elderhsouza.png" width="100px;"/>](https://github.com/elderhsouza)<br/> [<sub>Elder Henrique Souza</sub>](https://github.com/elderhsouza) | [<img src="https://github.com/skatcat31.png" width="100px;"/>](https://github.com/skatcat31)<br/> [<sub>Robert Mennell</sub>](https://github.com/skatcat31) | [<img src="https://github.com/atomiks.png" width="100px;"/>](https://github.com/atomiks)<br/> [<sub>atomiks</sub>](https://github.com/atomiks)  |
 

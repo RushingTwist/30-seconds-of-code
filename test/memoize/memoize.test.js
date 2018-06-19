@@ -1,13 +1,17 @@
-const test = require('tape');
+const expect = require('expect');
 const memoize = require('./memoize.js');
 
-test('Testing memoize', (t) => {
-  //For more information on all the methods supported by tape
-  //Please go to https://github.com/substack/tape
-  t.true(typeof memoize === 'function', 'memoize is a Function');
-  //t.deepEqual(memoize(args..), 'Expected');
-  //t.equal(memoize(args..), 'Expected');
-  //t.false(memoize(args..), 'Expected');
-  //t.throws(memoize(args..), 'Expected');
-  t.end();
+test('memoize is a Function', () => {
+  expect(memoize).toBeInstanceOf(Function);
+});
+const f = x => x * x;
+const square = memoize(f);
+test('Function works properly', () => {
+  expect(square(2)).toBe(4);
+});
+test('Function works properly', () => {
+  expect(square(3)).toBe(9);
+});
+test('Cache stores values', () => {
+  expect(Array.from(square.cache)).toEqual([[2,4],[3,9]]);
 });

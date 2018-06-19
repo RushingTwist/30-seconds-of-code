@@ -1,13 +1,15 @@
-const test = require('tape');
+const expect = require('expect');
 const delay = require('./delay.js');
 
-test('Testing delay', (t) => {
-  //For more information on all the methods supported by tape
-  //Please go to https://github.com/substack/tape
-  t.true(typeof delay === 'function', 'delay is a Function');
-  //t.deepEqual(delay(args..), 'Expected');
-  //t.equal(delay(args..), 'Expected');
-  //t.false(delay(args..), 'Expected');
-  //t.throws(delay(args..), 'Expected');
-  t.end();
+test('delay is a Function', () => {
+  expect(delay).toBeInstanceOf(Function);
+});
+test('Works as expecting, passing arguments properly', () => {
+  delay(
+    function(text) {
+      expect(text).toBe('test');
+    },
+    1000,
+    'test'
+  );
 });

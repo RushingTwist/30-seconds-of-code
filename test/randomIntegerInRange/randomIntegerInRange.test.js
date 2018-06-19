@@ -1,13 +1,15 @@
-const test = require('tape');
+const expect = require('expect');
 const randomIntegerInRange = require('./randomIntegerInRange.js');
 
-test('Testing randomIntegerInRange', (t) => {
-  //For more information on all the methods supported by tape
-  //Please go to https://github.com/substack/tape
-  t.true(typeof randomIntegerInRange === 'function', 'randomIntegerInRange is a Function');
-  //t.deepEqual(randomIntegerInRange(args..), 'Expected');
-  //t.equal(randomIntegerInRange(args..), 'Expected');
-  //t.false(randomIntegerInRange(args..), 'Expected');
-  //t.throws(randomIntegerInRange(args..), 'Expected');
-  t.end();
+test('randomIntegerInRange is a Function', () => {
+  expect(randomIntegerInRange).toBeInstanceOf(Function);
+});
+const lowerLimit = Math.floor(Math.random() * 20);
+const upperLimit = Math.floor(lowerLimit + Math.random() * 10);
+test('The returned value is an integer', () => {
+  expect(Number.isInteger(randomIntegerInRange(lowerLimit,upperLimit))).toBeTruthy();
+});
+const numberForTest = randomIntegerInRange(lowerLimit,upperLimit);
+test('The returned value lies between provided lowerLimit and upperLimit (both inclusive).', () => {
+  expect((numberForTest >= lowerLimit) && (numberForTest <= upperLimit)).toBeTruthy();
 });

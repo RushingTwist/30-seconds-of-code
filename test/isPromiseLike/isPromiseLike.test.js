@@ -1,13 +1,16 @@
-const test = require('tape');
+const expect = require('expect');
 const isPromiseLike = require('./isPromiseLike.js');
 
-test('Testing isPromiseLike', (t) => {
-  //For more information on all the methods supported by tape
-  //Please go to https://github.com/substack/tape
-  t.true(typeof isPromiseLike === 'function', 'isPromiseLike is a Function');
-  //t.deepEqual(isPromiseLike(args..), 'Expected');
-  //t.equal(isPromiseLike(args..), 'Expected');
-  //t.false(isPromiseLike(args..), 'Expected');
-  //t.throws(isPromiseLike(args..), 'Expected');
-  t.end();
+test('isPromiseLike is a Function', () => {
+  expect(isPromiseLike).toBeInstanceOf(Function);
+});
+test('Returns true for a promise-like object', () => {
+  expect(isPromiseLike({
+    then: function() {
+      return '';
+    }
+  })).toBeTruthy();
+});
+test('Returns false for an empty object', () => {
+  expect(isPromiseLike({})).toBeFalsy();
 });

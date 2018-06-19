@@ -1,15 +1,15 @@
-const test = require('tape');
+const expect = require('expect');
 const mapObject = require('./mapObject.js');
 
-test('Testing mapObject', (t) => {
-  //For more information on all the methods supported by tape
-  //Please go to https://github.com/substack/tape
-  t.true(typeof mapObject === 'function', 'mapObject is a Function');
-  const squareIt = arr => mapObject(arr, a => a * a);
-  t.deepEqual(squareIt([1, 2, 3]), { 1: 1, 2: 4, 3: 9 }, "Maps the values of an array to an object using a function");
-  //t.deepEqual(mapObject(args..), 'Expected');
-  //t.equal(mapObject(args..), 'Expected');
-  //t.false(mapObject(args..), 'Expected');
-  //t.throws(mapObject(args..), 'Expected');
-  t.end();
+test('mapObject is a Function', () => {
+  expect(mapObject).toBeInstanceOf(Function);
+});
+test('mapObject([1, 2, 3], a => a * a) returns { 1: 1, 2: 4, 3: 9 }', () => {
+  expect(mapObject([1, 2, 3], a => a * a)).toEqual({ 1: 1, 2: 4, 3: 9 });
+});
+test('mapObject([1, 2, 3, 4], (a, b) => b - a) returns { 1: -1, 2: -1, 3: -1, 4: -1 }', () => {
+  expect(mapObject([1, 2, 3, 4], (a, b) => b - a)).toEqual({ 1: -1, 2: -1, 3: -1, 4: -1 });
+});
+test('mapObject([1, 2, 3, 4], (a, b) => a - b) returns { 1: 1, 2: 1, 3: 1, 4: 1 }', () => {
+  expect(mapObject([1, 2, 3, 4], (a, b) => a - b)).toEqual({ 1: 1, 2: 1, 3: 1, 4: 1 });
 });

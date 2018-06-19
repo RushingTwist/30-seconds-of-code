@@ -1,13 +1,17 @@
-const test = require('tape');
+const expect = require('expect');
 const functions = require('./functions.js');
 
-test('Testing functions', (t) => {
-  //For more information on all the methods supported by tape
-  //Please go to https://github.com/substack/tape
-  t.true(typeof functions === 'function', 'functions is a Function');
-  //t.deepEqual(functions(args..), 'Expected');
-  //t.equal(functions(args..), 'Expected');
-  //t.false(functions(args..), 'Expected');
-  //t.throws(functions(args..), 'Expected');
-  t.end();
+test('functions is a Function', () => {
+  expect(functions).toBeInstanceOf(Function);
+});
+function Foo() {
+  this.a = () => 1;
+  this.b = () => 2;
+}
+Foo.prototype.c = () => 3;
+test('Returns own methods', () => {
+  expect(functions(new Foo())).toEqual( ['a', 'b']);
+});
+test('Returns own and inherited methods', () => {
+  expect(functions(new Foo(), true)).toEqual(['a', 'b', 'c']);
 });

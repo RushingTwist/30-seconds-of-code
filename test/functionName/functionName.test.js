@@ -1,13 +1,18 @@
-const test = require('tape');
-const functionName = require('./functionName.js');
+const expect = require('expect');
+let output = '';
+const functionName = fn => fn.name;
 
-test('Testing functionName', (t) => {
-  //For more information on all the methods supported by tape
-  //Please go to https://github.com/substack/tape
-  t.true(typeof functionName === 'function', 'functionName is a Function');
-  //t.deepEqual(functionName(args..), 'Expected');
-  //t.equal(functionName(args..), 'Expected');
-  //t.false(functionName(args..), 'Expected');
-  //t.throws(functionName(args..), 'Expected');
-  t.end();
+test('functionName is a Function', () => {
+  expect(functionName).toBeInstanceOf(Function);
+});
+test('Works for native functions', () => {
+  expect(functionName(Math.max)).toBe('max');
+});
+function fun(x) {return x;}
+test('Works for functions', () => {
+  expect(functionName(fun)).toBe('fun');
+});
+const fn = x => x;
+test('Works for arrow functions', () => {
+  expect(functionName(fn)).toBe('fn');
 });
